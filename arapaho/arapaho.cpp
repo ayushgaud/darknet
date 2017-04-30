@@ -56,21 +56,11 @@ bool ArapahoV2::Setup(
         return false;
     }    
     
-    list *options = read_data_cfg(p.datacfg);
-    char nameField[] = "names";
-    char defaultName[] = "data/names.list";
-    char *nameListFile = option_find_str(options, nameField, defaultName);
-    if(!nameListFile)
-    {
-        DPRINTF("No valid nameList file specified in options file [%s]!\n", p.datacfg);
-        return false;
-    }
-    classNames = get_labels(nameListFile);
-    if(!classNames)
-    {
-        DPRINTF("No valid class names specified in nameList file [%s]!\n", nameListFile);
-        return false;
-    }
+    //list *options = read_data_cfg(p.datacfg);
+    //char nameField[] = "names";
+    // char defaultName[] = "class.names";
+
+    classNames = get_labels(p.datacfg);
 
     int j;
     bool ret = false;
